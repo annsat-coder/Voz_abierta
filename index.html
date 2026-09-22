@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voz Abierta — Comunidad ciudadana</title>
+  <meta name="description" content="Voz Abierta, plataforma ficticia de discusión ciudadana." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Voz Abierta, inicio">
+      <span class="brand-mark">VA</span>
+      <span>Voz Abierta</span>
+    </a>
+
+    <label class="search">
+      <span class="search-icon">⌕</span>
+      <input id="searchInput" type="search" placeholder="Buscar en Voz Abierta" autocomplete="off" />
+      <button id="clearSearch" class="clear-search" type="button" aria-label="Limpiar búsqueda">×</button>
+    </label>
+
+    <div class="top-actions">
+      <button class="btn btn-create" id="openCreate">＋ Crear</button>
+      <button class="btn btn-login" id="loginBtn">Iniciar sesión</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="mobile-nav-btn active" data-section="home">⌂ <span>Inicio</span></button>
+    <button class="mobile-nav-btn" data-section="popular">◉ <span>Popular</span></button>
+    <button class="mobile-nav-btn" data-section="recent">◷ <span>Recientes</span></button>
+    <button class="mobile-nav-btn" id="mobileCommunities">☰ <span>Comunidades</span></button>
+  </div>
+
+  <main class="layout">
+    <aside class="left-sidebar">
+      <nav>
+        <div class="nav-group">
+          <div class="nav-label">NAVEGACIÓN</div>
+          <button class="side-link active" data-sort="relevant"><span>⌂</span> Inicio</button>
+          <button class="side-link" data-sort="relevant"><span>◉</span> Popular</button>
+          <button class="side-link" data-sort="recent"><span>◷</span> Más recientes</button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">COMUNIDADES</div>
+          <button class="side-link community-link" data-community="Lima"><span class="community-dot">L</span> Lima</button>
+          <button class="side-link community-link" data-community="Ancón"><span class="community-dot">A</span> Ancón</button>
+          <button class="side-link community-link" data-community="Ate"><span class="community-dot">A</span> Ate</button>
+          <button class="side-link community-link" data-community="Callao"><span class="community-dot">C</span> Callao</button>
+          <button class="side-link community-link" data-community="San Juan de Lurigancho"><span class="community-dot">S</span> San Juan de Lurigancho</button>
+          <button class="side-link community-link" data-community="Villa El Salvador"><span class="community-dot">V</span> Villa El Salvador</button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">OTROS</div>
+          <button class="side-link" id="savedNav"><span>▢</span> Guardados</button>
+          <button class="side-link"><span>◴</span> Historial</button>
+        </div>
+      </nav>
+      <div class="sidebar-footer">© 2025 Voz Abierta<br />Conversaciones de la comunidad</div>
+    </aside>
+
+    <section class="feed-column">
+      <div class="feed-heading">
+        <div>
+          <p class="eyebrow">COMUNIDAD ABIERTA</p>
+          <h1>Publicaciones</h1>
+        </div>
+        <div class="sorter">
+          <button class="sort-btn active" data-sort="relevant">Más relevantes</button>
+          <button class="sort-btn" data-sort="recent">Más recientes</button>
+          <button class="sort-btn" data-sort="comments">Más comentadas</button>
+        </div>
+      </div>
+
+      <div id="searchStatus" class="search-status hidden"></div>
+      <div id="feed" class="feed"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">⌕</div>
+        <h2>No encontramos publicaciones</h2>
+        <p>Prueba con otro término o limpia la búsqueda.</p>
+      </div>
+    </section>
+
+    <aside class="right-sidebar">
+      <section class="side-card">
+        <div class="card-title-row">
+          <h2>Comunidades populares</h2>
+          <button class="small-more">•••</button>
+        </div>
+        <div class="popular-community"><span class="community-avatar blue">L</span><div><strong>Lima</strong><small>48.2 mil miembros</small></div><button>Seguir</button></div>
+        <div class="popular-community"><span class="community-avatar green">N</span><div><strong>Noticias</strong><small>31.8 mil miembros</small></div><button>Seguir</button></div>
+        <div class="popular-community"><span class="community-avatar amber">T</span><div><strong>Transporte</strong><small>18.6 mil miembros</small></div><button>Seguir</button></div>
+        <div class="popular-community"><span class="community-avatar violet">S</span><div><strong>Seguridad</strong><small>15.4 mil miembros</small></div><button>Seguir</button></div>
+        <div class="popular-community"><span class="community-avatar rose">V</span><div><strong>Vivienda</strong><small>12.7 mil miembros</small></div><button>Seguir</button></div>
+      </section>
+
+      <section class="side-card topics-card">
+        <h2>Temas populares</h2>
+        <div class="topic-list">
+          <button data-search="Transporte">Transporte <span>12.4k</span></button>
+          <button data-search="Seguridad">Seguridad <span>9.8k</span></button>
+          <button data-search="Vivienda">Vivienda <span>7.6k</span></button>
+          <button data-search="Servicios públicos">Servicios públicos <span>6.1k</span></button>
+          <button data-search="Comunidad">Comunidad <span>5.4k</span></button>
+        </div>
+      </section>
+
+      <section class="side-card about-card">
+        <h2>Sobre Voz Abierta</h2>
+        <p>Un espacio para compartir información, experiencias y conversaciones de la comunidad.</p>
+        <div class="about-links"><a href="#">Reglas</a><a href="#">Privacidad</a><a href="#">Ayuda</a></div>
+      </section>
+    </aside>
+  </main>
+
+  <button class="floating-create" id="floatingCreate" aria-label="Crear publicación">＋</button>
+
+  <div class="modal-backdrop" id="createModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div><p class="eyebrow">NUEVA PUBLICACIÓN</p><h2 id="modalTitle">Crear publicación</h2></div>
+        <button class="modal-close" id="closeCreate" aria-label="Cerrar">×</button>
+      </div>
+      <form id="createForm">
+        <label>Título<input id="newTitle" required maxlength="140" placeholder="¿Qué quieres compartir?" /></label>
+        <label>Texto<textarea id="newText" rows="5" placeholder="Añade contexto a tu publicación..."></textarea></label>
+        <label>Comunidad
+          <select id="newCommunity">
+            <option>Lima</option><option>Noticias</option><option>Transporte</option><option>Seguridad</option><option>Vivienda</option><option>Comunidad</option>
+          </select>
+        </label>
+        <label class="image-input">Agregar imagen <input id="newImage" type="file" accept="image/*" /></label>
+        <button class="publish-btn" type="submit">Publicar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
